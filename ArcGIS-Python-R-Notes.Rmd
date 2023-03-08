@@ -1,0 +1,121 @@
+---
+title: "R and Python In ArcGIS Notes"
+author: "Powered by LTG Analytics"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: yes
+    theme: cerulean
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Notes {.tabset}
+
+## Spatial Statistics: Making Prediction {.tabset}
+
+Prediction is a challenging mix of prep and fortune that combines:
+
+- Domain Expertise
+- Math and Stat rigors
+- Problem that benefits from prediction
+- Tools
+- Appropriate Data
+
+### Generalized Linear Regressions
+
+- modeling linear relationships OLS is an example of it
+- essentially finding the slope of the line
+- Dependent variable = y variable
+- explanatory variables = x variables
+- betas represent strength and types of relationships
+- error term shows what the model over and under predictions are
+- want the error terms to be randomly distributed
+
+### Geographically Weighted Regression
+
+- Exploring spatial variation
+- each feature gets its own equation
+- use the neighborhood to calculate each feature
+- define the neighborhood to different things, like neighbors, distance, can do a "golden search"
+
+### Multiscale Geographically Weighted Regression
+
+- Allows you to vary the neighborhood size
+- good coef est
+- meaningful interpretation
+- accurate prediction
+- less multi co-linarity
+- define neighborhood type
+- allows you to investigate specific significance for variables inside
+
+### Forest Based Classification and Regression
+
+- Random Forest algo
+- every model requires training, needs to have examples
+- its a group of trees that helps to prevent over fitting
+- predict continuous variables as well
+- gives you importance values to your variables
+
+### Presence Only Prediction MaxENT
+
+MaxEnt, short for Maximum Entropy, is a machine learning algorithm used for classification tasks. It uses the principle of maximum entropy to make predictions based solely on the presence of features or predictors. The idea behind this is to make predictions based on the least amount of information, with the assumption that the absence of a feature provides no information about the outcome. In presence-only prediction, the MaxEnt algorithm predicts the class label of an instance based only on the features that are present in it and not on the features that are absent.
+
+- does not require absence data
+- performs elastic net variable selection, using lasso + ridge regression
+- will also do cross validation
+
+### Other terms
+
+- Gaussian, model a continuous variables
+- poisson model is a count variable method
+- logistic is a binary yes or no, classification model
+
+C:/Users/tyler/LTG_Analytics_Code/ArcGIS-Python-R-Notes.Rmd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## R and ArcGIS Integration {.tabset}
+
+Nicholas Giner and Joshua Grail
+
+-    Using markdown/quarto to produce their presentation
+-    Case study was carbon dating
+-    Date integration, visz and explore, spatial analysis, geoai, big data analytics, modeling and scripting, sharing and collaboration.  <<<< Their workflow
+-    ArcGIS is open and inter operable, can tie in with R and Python
+-    R-ArcGIS Bridge
+- ModelBuilder is what makes r and python code integrate, use r and python scripts to be parts of the tool, can be inside one platform
+
+
+### Python
+- Python is the language for GIS
+-  Has ArcGIS Notebooks, package management
+- Has its own API for python
+- ArcPy package
+
+
+### R
+- ability to connect the systems via R-ArcGIS Bridge, brings in data to r notebooks, create maps in r, use arcpy in r scripts
+- have leaflet integration
+- read in functions and writing back into arcgis
+- use R to run all the heavy lifting and convert the dataset back into arcgis formats and upload after the fact
+- stack rasters in each zip code, then cluster it for 6 districts
+- everything he did was a google fest
+- Resources all inside their documentation (learn arc gis)
+- r.esri.com
+
